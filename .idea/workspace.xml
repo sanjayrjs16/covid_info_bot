@@ -20,7 +20,7 @@
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="info_bot" />
+      <module name="covid_info_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -41,7 +41,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="info_bot" />
+      <module name="covid_info_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
@@ -52,7 +52,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="info_bot" />
+      <module name="covid_info_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
@@ -70,7 +70,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Twisted Trial">
-      <module name="info_bot" />
+      <module name="covid_info_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
