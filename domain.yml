@@ -2,12 +2,9 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- give_name
+- give_user_info
 - thank_bot
 - greet
-- give_mobnumber
-- give_pincode
-- give_email
 - goodbye
 - affirm
 - deny
@@ -65,8 +62,12 @@ responses:
   utter_userinfo_thank:
   - text: Thank you ! How can I help ?
   utter_userinfo_reaffirm:
-  - text: -text
+  - text: I am a bot to provide you information about the corona virus pandemic. You
+      details are only used for the same purpose.Would you like me to continue ?
+  utter_greet:
+  - text: Hello there mate !!
 actions:
+- utter_greet
 - utter_ask_email
 - utter_ask_mobnumber
 - utter_ask_name
@@ -78,5 +79,6 @@ actions:
 - utter_noworries
 - utter_userinfo_thank
 - utter_userinfo_reaffirm
+- action_session_start
 forms:
 - user_info

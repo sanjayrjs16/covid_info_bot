@@ -6,6 +6,7 @@
 - Hello
 - good morning
 - hi again
+- hey this is [Joshua](name)
 - hi folks
 - hi Mister
 - hi pal!
@@ -17,8 +18,22 @@
 - hi
 - hello
 - Namashkaar
+- Hello , I am [ryan](name)
+- Hey , I'm [nikhil](name)
+- Yo
+- Yo , [cedric](name) here
+- What's up
+- what is up
+- What's up , [Jeff Cavaliere](name)
+- Hey , I am [Zlatan](name)
+- hello , my name is [joey](name)
+- namasthe, [Kapoor](name) here
+- hello everyone, my name is [Krish Naik](name)
+- greetings, I am [Thomas](name)
+- Hola , [leo](name) here.
+- Hey , it's [Jashim](name)
 
-## intent:give_name
+## intent:give_user_info
 - hey , this is [Charlie](name)
 - hello , [Shyam](name) here.
 - hi , I'm [Ram](name)
@@ -48,8 +63,6 @@
 - I am [Erlich](name)
 - [bachmann](name)
 - iam [harper](name)
-
-## intent:give_email
 - [pricesscool@gmail.com](email)
 - my email id is [abc@xyz.com](email)
 - my mail id is [arun12@gmail.com](email)
@@ -70,8 +83,6 @@
 - okay , it's [erlichbachman72@aviato.com](email)
 - [nitin_cool123@hotmail.net](email)
 - [herbertking@yahoo.com](email)
-
-## intent:give_pincode
 - [673032](pincode)
 - [657833](pincode)
 - my pin code is [120277](pincode)
@@ -91,8 +102,6 @@
 - continue , my pincode is [603010](pincode)
 - [680008](pincode)
 - [223445](pincode)
-
-## intent:give_mobnumber
 - [9236478236](mobnumber)
 - sure it is [9357724413](mobnumber)
 - my contact number is [8075430831](mobnumber)
@@ -111,6 +120,15 @@
 - It is [9447277030](mobnumber)
 - [9496347600](mobnumber)
 - [9678367586](mob_number)
+- [caseyy@gmail.com](email)
+- [676364](pincode)
+- okay, I am [Shiva](name)
+- hmm, alright. It's [shiva32a@yahoo.com](email)
+- sure, it is [363244](pincode)
+- Okay it is , [9943556600](mobnumber)
+
+
+
 
 ## intent:goodbye
 - bye
@@ -149,6 +167,14 @@
 - I don't want to tell you my email id.
 - I don't want to tell you my pin code.
 - Not going to tell you.
+- don't want to tell you
+- sorry , not interested.
+- don't want to disclose that information.
+- can't give.
+- not interested
+- sorry
+- nop
+
 
 ## intent:mood_great
 - perfect

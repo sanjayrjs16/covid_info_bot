@@ -12,6 +12,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
+from rasa_sdk.events import SlotSet, SessionStarted, ActionExecuted, EventType
 
 
 #
@@ -28,6 +29,46 @@ from rasa_sdk.forms import FormAction
 #
 #         return []
 
+class ActionSessionStart(Action):
+    def name(self) -> Text:
+        return "action_session_start"  # This name function returns the name of the custom action.Here is is action_session_start
+
+    @staticmethod
+    def fetch_slots(tracker: Tracker) -> List[EventType]:
+        """Collect slots that contain the user's name and phone number."""
+
+        slots = []
+
+        for key in ("name", "email", "pincode", "mobnumber"):
+            value = tracker.get_slot(key)
+            if value is not None:  # this is how to check if slot value is filled or not.
+                slots.append(SlotSet(key=key, value=value))
+
+        return slots
+
+
+    async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[EventType]:
+
+        # the session should begin with a `session_started` event
+        events = [SessionStarted()]
+        #
+        # # any slots that should be carried over should come after the
+        # # `session_started` event
+        # events.extend(self.fetch_slots(tracker))
+        #
+        # # an `action_listen` should be added at the end as a user message follows
+        dispatcher.utter_message(template="utter_greet_ask")
+        events.append(ActionExecuted("action_listen"))
+        #
+
+        return events
+
+
 class UserInfo(FormAction):
 
     def name(self) -> Text:
@@ -41,13 +82,13 @@ class UserInfo(FormAction):
 
     def slot_mappings(self) -> Dict[Text, Any]:
         return {"name": self.from_entity(entity="name",
-                                         intent=["give_name"]),
+                                         intent=["give_user_info", "greet"]),
                 "email": self.from_entity(entity="email",
-                                          intent=["give_email"]),
+                                          intent=["give_user_info"]),
                 "pincode": self.from_entity(entity="pincode",
-                                            intent=["give_pincode"]),
+                                            intent=["give_user_info"]),
                 "mobnumber": self.from_entity(entity="mobnumber",
-                                               intent=["give_mobnumber"])}
+                                              intent=["give_user_info"])}
 
     def submit(self,
                dispatcher: CollectingDispatcher,
