@@ -11,6 +11,8 @@ intents:
 - mood_great
 - mood_unhappy
 - bot_challenge
+- start:
+    triggers: utter_bot_function
 entities:
 - email
 - mobnumber
@@ -53,8 +55,6 @@ responses:
   - text: Did that help you?
   utter_goodbye:
   - text: Bye
-  utter_greet_ask:
-  - text: hey there ,whats your name?
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_noworries:
@@ -66,6 +66,8 @@ responses:
       details are only used for the same purpose.Would you like me to continue ?
   utter_greet:
   - text: Hello there mate !!
+  utter_bot_function:
+  - text: hey there ,I can give you details about corona pandemic.
 actions:
 - utter_greet
 - utter_ask_email
@@ -74,8 +76,8 @@ actions:
 - utter_ask_pincode
 - utter_did_that_help
 - utter_goodbye
-- utter_greet_ask
 - utter_iamabot
+- utter_bot_function
 - utter_noworries
 - utter_userinfo_thank
 - utter_userinfo_reaffirm

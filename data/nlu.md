@@ -126,9 +126,10 @@
 - hmm, alright. It's [shiva32a@yahoo.com](email)
 - sure, it is [363244](pincode)
 - Okay it is , [9943556600](mobnumber)
-
-
-
+- I am [Rodrigo](name)
+- [Rodri@gmail.com](email)
+- [312245](pincode)
+- [9946788812](mobnumber)
 
 ## intent:goodbye
 - bye
@@ -175,7 +176,6 @@
 - sorry
 - nop
 
-
 ## intent:mood_great
 - perfect
 - very good
@@ -218,6 +218,9 @@
 - thanks for your help
 - thank you for your help
 - thanks mate.
+
+## intent:start
+- /start
 
 ## regex:email
 - ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$

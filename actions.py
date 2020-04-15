@@ -46,7 +46,6 @@ class ActionSessionStart(Action):
 
         return slots
 
-
     async def run(
             self,
             dispatcher: CollectingDispatcher,
@@ -59,10 +58,10 @@ class ActionSessionStart(Action):
         #
         # # any slots that should be carried over should come after the
         # # `session_started` event
-        # events.extend(self.fetch_slots(tracker))
+        events.extend(self.fetch_slots(tracker))
         #
         # # an `action_listen` should be added at the end as a user message follows
-        dispatcher.utter_message(template="utter_greet_ask")
+        dispatcher.utter_message(template="utter_bot_function")
         events.append(ActionExecuted("action_listen"))
         #
 

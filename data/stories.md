@@ -1,19 +1,8 @@
-
-## happy path
-* greet
-  - utter_greet_ask
-* give_user_info{"name" : "Baljith"}
-  - user_info
-  - form{"name":"user_info"}
-  - form{"name": null}
-  - utter_userinfo_thank
-* goodbye
-  - utter_goodbye
-  
-
 ## unhappy_path_1
+* start
+    - utter_bot_function
 * greet
-    - utter_greet_ask
+    - utter_ask_name
 * deny
     - utter_userinfo_reaffirm
 * give_user_info{"name": "Shiva"}
@@ -53,7 +42,22 @@
 * goodbye
 
 ## bot challenge
+* start
+    - utter_bot_function
 * bot_challenge
   - utter_iamabot
+* goodbye
+    - utter_goodbye
+
+## happy path
+* start
+    - utter_bot_function
+* greet
+    - utter_ask_name
+* give_user_info{"name":"Rodrigo"}
+    - user_info
+    - form{"name":"user_info"}
+    - form{"name":null}
+    - utter_userinfo_thank
 * goodbye
     - utter_goodbye
