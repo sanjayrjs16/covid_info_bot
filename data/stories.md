@@ -1,63 +1,54 @@
-## unhappy_path_1
-* start
-    - utter_bot_function
-* greet
-    - utter_ask_name
-* deny
-    - utter_userinfo_reaffirm
-* give_user_info{"name": "Shiva"}
-    - slot{"name": "Shiva"}
-    - user_info
-    - form{"name": "user_info"}
-    - slot{"name": "Shiva"}
-    - slot{"name": "Shiva"}
-    - slot{"requested_slot": "email"}
-    - utter_ask_email
-* deny
-    - utter_userinfo_reaffirm
-    - action_listen
-* form: give_user_info{"email": "shiva32a@yahoo.com"}
-    - slot{"email": "shiva32a@yahoo.com"}
-    - user_info
-    - slot{"email": "shiva32a@yahoo.com"}
-    - slot{"requested_slot": "pincode"}
-* deny
-    - utter_userinfo_reaffirm
-    - action_listen
-* form: give_user_info{"pincode": "363244"}
-    - slot{"pincode": "363244"}
-    - user_info
-    - slot{"pincode": "363244"}
-    - slot{"requested_slot": "mobnumber"}
-* deny
-    - utter_userinfo_reaffirm
-    - action_listen
-* form: give_user_info{"mobnumber": "9943556600"}
-    - slot{"mobnumber": "9943556600"}
-    - user_info
-    - slot{"mobnumber": "9943556600"}
-    - form{"name": null}
-    - slot{"requested_slot": null}
-    - utter_userinfo_thank
-* goodbye
 
 ## bot challenge
 * start
+    - utter_whoami
     - utter_bot_function
 * bot_challenge
-  - utter_iamabot
+    - utter_whoami
+    - utter_bot_function
 * goodbye
     - utter_goodbye
 
-## happy path
+##user info happy path with greet
 * start
+    - utter_whoami
     - utter_bot_function
 * greet
-    - utter_ask_name
+    - utter_greet
+    - utter_bot_function
+* ask_worldwide
+    - action_cases_worldwide
+    - utter_bot_function
+* ask_countrywise
+    - action_cases_countrywise
+    - utter_bot_function
+* mail_me
+    - action_check_userinfo
 * give_user_info{"name":"Rodrigo"}
     - user_info
     - form{"name":"user_info"}
     - form{"name":null}
     - utter_userinfo_thank
+*thank_bot
+    - utter_noworries
 * goodbye
     - utter_goodbye
+    
+
+## what is corona
+* corona_intro
+  - utter_corona_intro
+  
+## how does corona spread
+* corona_spread
+  - utter_corona_spread
+## corona food spread
+* corona_food_spread
+  - utter_corona_food_spread
+
+## corona warm weather
+* warm_weather
+  - utter_warm_weather
+## corona high risk
+* high_risk
+   - utter_high_risk

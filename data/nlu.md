@@ -6,7 +6,6 @@
 - Hello
 - good morning
 - hi again
-- hey this is [Joshua](name)
 - hi folks
 - hi Mister
 - hi pal!
@@ -18,6 +17,9 @@
 - hi
 - hello
 - Namashkaar
+
+
+## intent:give_user_info
 - Hello , I am [ryan](name)
 - Hey , I'm [nikhil](name)
 - Yo
@@ -32,8 +34,6 @@
 - greetings, I am [Thomas](name)
 - Hola , [leo](name) here.
 - Hey , it's [Jashim](name)
-
-## intent:give_user_info
 - hey , this is [Charlie](name)
 - hello , [Shyam](name) here.
 - hi , I'm [Ram](name)
@@ -46,11 +46,11 @@
 - [Bond](name),[James Bond](name)
 - [Anand](name)
 - [Abhishek](name)
-- [Vivek](name)
+- [vivek](name)
 - [Marco](name)
 - [Joe](name)
 - [Praveen](name)
-- [Kevin](name)
+- [kevin](name)
 - [Anirudh](name)
 - [Arun](name)
 - [Rohith](name)
@@ -131,6 +131,15 @@
 - [312245](pincode)
 - [9946788812](mobnumber)
 
+## intent:mail_me
+- mail me reports
+- mail me precautionary measures
+- I want reports mailed
+- can you sent me the reports to my mail
+- sent mail
+- sent me the mail
+- I want reports mailed
+ 
 ## intent:goodbye
 - bye
 - goodbye
@@ -219,6 +228,165 @@
 - thank you for your help
 - thanks mate.
 
+## intent:corona_intro
+- What is corona virus
+- what is covid
+- what is a novel corona virus
+- what is covid-19
+- tell me about corona
+- can you tell me about covid
+
+## intent:corona_spread
+- how does corona virus spread
+- how does the virus spread
+- how it spread
+- mode of spreading
+
+## intent:corona_food_spread
+- Does corona spread from food
+- how will corona spread from food
+
+## intent:warm_weather
+- will warm weather stop the spread
+- will it stop with warm weather
+- can warm weather stop the virus
+- what about warm weather
+
+## intent: high_risk
+- who is at a higher risk of infection
+- who are most vulnerable to it
+- who are most vulnerable to get infected
+- who can get the virus most
+- who are most likely to get infected
+
+## intent: ask_worldwide
+- worldwide
+- total cases
+- how many cases worldwide
+- world
+- earth
+- planet
+- what is total number of cases
+- total no of cases worldwide
+- whole world
+- whole wide world
+- cases worldwide
+- how many world
+- worldwide reported cases
+- entire world
+- total
+- across the globe
+- global
+- how many cases globally
+- cases globally
+- total cases globally
+
+## lookup:country
+data/test/lookup_tables/countries.txt
+
+## intent: ask_countrywise
+- [India](country)
+- [Antigua and Barbuda](country)
+- [Argentina](country)
+- [Armenia](country)
+- [Australia](country)
+- what is the stats of [Austria](country)
+- [Bhutan](country)
+- [Bolivia](country)
+- [Bosnia and Herzegovina](country)
+- [Brunei](country)
+- [Bulgaria](country)
+- [Burkina Faso](country)
+- [Burundi](country)
+- [Central African Republic](country)
+- [Azerbaijan](country)
+- [Czech Republic](country)
+- [Denmark](country)
+- [Djibouti](country)
+- [Dominica](country)
+- [Dominican Republic](country)
+- [East Timor](country)
+- [Ecuador](country) count
+- [Egypt](country)
+- [El Salvador](country)
+- [Fiji](country)
+- [Finland](country)
+- [France](country)
+- [Gabon](country)
+- [The Gambia](country)
+- [Georgia](country)
+- [Guinea](country)
+- [Guinea-Bissau](country)
+- [Guyana](country)
+- [Haiti](country)
+- [Honduras](country)
+- [Iceland](country)
+- [Israel](country)
+- [Italy](country)
+- how many in [Japan](country)
+- [Jordan](country)
+- [Kiribati](country)
+- [North Korea,](country)
+- [South Korea,](country)
+- [Kyrgyzstan](country)
+- [Laos](country)
+- [Latvia](country)
+- [Lebanon](country)
+- [Lesotho](country)
+- [Luxembourg](country)
+- [Madagascar](country)
+- [Malawi](country)
+- [Mexico](country)
+- [Micronesia](country)
+- [Moldova](country)
+- [Mozambique](country)
+- [Myanmar](country)
+- [Namibia](country)
+- [Nauru](country)
+- [North Macedonia](country)
+- [Papua New Guinea](country)
+- [Paraguay](country)
+- [Peru](country)
+- [Philippines](country)
+- [Qatar](country)
+- [Romania](country)
+- [Russia](country)
+- [Rwanda](country)
+- [Slovenia](country)
+- [Solomon Islands](country)
+- [Saint Kitts and Nevis](country)
+- [Saint Lucia](country)
+- [Saint Vincent and the Grenadines](country)
+- [Samoa](country)
+- [San Marino](country)
+- [Sao Tome and Principe](country)
+- [Sri Lanka](country)
+- [Sudan](country)
+- [Tajikistan](country)
+- [Tanzania](country)
+- [Thailand](country)
+- [Togo](country)
+- [Sweden](country)
+- [Switzerland](country)
+- [Syria](country)
+- [Taiwan](country)
+- [Tajikistan](country)
+- [Tanzania](country)
+- [Thailand](country)
+- [Togo](country)
+- [Tonga](country)
+- [Trinidad and Tobago](country)
+- [United Arab Emirates](country)
+- [United Kingdom](country)
+- [United States](country)
+- [Uruguay](country)
+- [Uzbekistan](country)
+- [Vatican City](country)
+- [Zambia](country)
+- [Zimbabwe](country)
+
+
+ 
 ## intent:start
 - /start
 

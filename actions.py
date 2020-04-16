@@ -6,32 +6,94 @@
 
 
 # This is a simple example for a custom action which utters "Hello World!"
-
+from __future__ import unicode_literals
 from typing import Any, Text, Dict, List
 
+import requests
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet, SessionStarted, ActionExecuted, EventType
 
 
-#
-# class ActionLocation(Action):
-#
-#     def name(self) -> Text:
-#         return "action_location"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="You asked for location with higher no. of cases.")
-#
-#         return []
+def call_api(select, country):
+    url = "https://covid-19-data.p.rapidapi.com/"
+    headers = {
+        'x-rapidapi-host': "covid-19-data.p.rapidapi.com",
+        'x-rapidapi-key': "ca525b0b4amshd1cc1be598c5872p16788bjsn91429d8e8683"
+    }
+    if select == "world":
+        url = url + "totals"
+    else:
+        url = url + "country"
+    if country is None:
+        querystring = {"format": "json"}
+    else:
+        querystring = {"format": "json", "name": country}
 
-class ActionSessionStart(Action):
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    return response.json()
+
+
+class ActionCasesWorldwide(Action):
+
     def name(self) -> Text:
-        return "action_session_start"  # This name function returns the name of the custom action.Here is is action_session_start
+        return "action_cases_worldwide"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        response = call_api("world", None)
+        dispatcher.utter_message(text="World wide reports : ")
+        for key in ("confirmed", "recovered", "critical", "deaths"):
+            dispatcher.utter_message("{} : {}".format(key, response[0][key]))
+
+        return []
+
+
+class ActionCasesCountrywise(Action):
+
+    def name(self) -> Text:
+        return "action_cases_countrywise"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        country = tracker.latest_message['entities'][0]['value']
+        response = call_api("country", country)
+        dispatcher.utter_message(text="Latest reports from {}:".format(country))
+        for key in ("confirmed", "recovered", "critical", "deaths"):
+            dispatcher.utter_message("{} : {}".format(key, response[0][key]))
+
+        return []
+
+
+class ActionCheckUserInfo(Action):
+
+    def name(self) -> Text:
+        return "action_check_userinfo"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        flag = 0
+        for key in ("name", "email"):
+            value = tracker.get_slot(key)
+            if value is None:  # this is how to check if slot value is filled or not.
+                dispatcher.utter_message(text="I don't have your details yet.")
+                dispatcher.utter_message(template="utter_ask_name")
+                flag = 1
+                break
+        if flag == 0:
+            dispatcher.utter_message(text="Stay Safe, I have sent the mail.")
+
+        return []
+
+
+class ActionSessionStart(Action):  # This function is to override the session start action
+    def name(self) -> Text:
+        return "action_session_start"  # This name function returns the name of the custom action.Here is is
+        # action_session_start
 
     @staticmethod
     def fetch_slots(tracker: Tracker) -> List[EventType]:
@@ -68,7 +130,7 @@ class ActionSessionStart(Action):
         return events
 
 
-class UserInfo(FormAction):
+class UserInfo(FormAction):  # This form collects user info
 
     def name(self) -> Text:
         """Unique identifier of the form"""
