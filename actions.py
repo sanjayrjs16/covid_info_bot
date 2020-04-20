@@ -7,16 +7,97 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 from __future__ import unicode_literals
+
+from pathlib import Path
 from typing import Any, Text, Dict, List
 
+import os
 import requests
+import smtplib
+from email.message import EmailMessage
+from bs4 import BeautifulSoup as bs
+import fitz
+from imgurpython import ImgurClient
+
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
-from rasa_sdk.events import SlotSet, SessionStarted, ActionExecuted, EventType
+from rasa_sdk.events import SlotSet, SessionStarted, ActionExecuted, EventType, FollowupAction
 
 
-def call_api(select, country):
+def scrape_url():  # This function srapes the pdf from WHO website
+    whourl = "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports"
+    resp = requests.get(whourl)
+    whopage = resp.text
+    who_html = bs(whopage, "html.parser")
+    doc_url = who_html.find("div", attrs={"class": "sf_colsIn col-md-10"}).div.div.p.a['href']
+    finalurl = "https://www.who.int" + doc_url
+    return finalurl
+
+
+def imageuploader():  # This function uploades the image from  the pdf to imgur
+    client_id = '9d213e9aa66dc00'
+    client_secret = '2d7eb20e11df6e8ae52046706d04b20a63d668d4'
+
+    client = ImgurClient(client_id, client_secret)
+    link = client.upload_from_path("p1.png", config=None, anon=True)
+    return link['link']
+
+
+def getpdf():  # THis function is, used to scrape image from pdf.
+
+    filename = Path('worldviz.pdf')
+    finalurl = scrape_url()
+    response = requests.get(finalurl)
+    filename.write_bytes(response.content)
+
+    doc = fitz.open(filename)
+    imglist = doc.getPageImageList(0)
+    img = imglist[1]
+    xref = img[0]
+    pix = fitz.Pixmap(doc, xref)
+    if pix.n < 5:  # this is GRAY or RGB
+
+        pix.writePNG("p1.png")
+
+    else:  # CMYK: convert to RGB first
+        pix1 = fitz.Pixmap(fitz.csRGB, pix)
+
+        pix1.writePNG("p1.png")
+        pix1 = None
+        pix = None
+
+
+def sent_email(usermail, username):
+    finalurl = scrape_url()
+    botmail = 'covidinfobot@gmail.com'
+    passwd = 'testbot#1'
+    msg = EmailMessage()
+    msg['Subject'] = 'Covid latest reports and preventive measures.'
+    msg['From'] = botmail
+    msg['To'] = usermail
+    msg.add_alternative("""\
+    <!DOCTYPE html>
+    <html>
+        <body>
+            <p>Hello {username},<br/>
+            You are receiving this mail as per your request, via chat.</p>
+            <h4>Check latest reports worldwide via this link :{finalurl}"</h4>
+            <h4 style="color:SlateGray;">Preventive measures againt Covid19.</h4>
+            <img src="https://www.unicef.org/bangladesh/sites/unicef.org.bangladesh/files/Dos%20and%20Dont%27s.png">
+            <p>Data source: UNICEF, WHO</p>
+            <h4> Stay safe, <br/>       
+                         - covidinfobot</h4>
+            <h6>(Powered by Rasa)</h6>
+        </body>
+    </html>
+    """.format(username=username, finalurl=finalurl), subtype='html')
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login(botmail, passwd)
+        smtp.send_message(msg)
+
+
+def call_api(select, country):  # This is to configure the api and fetch cases details.
     url = "https://covid-19-data.p.rapidapi.com/"
     headers = {
         'x-rapidapi-host': "covid-19-data.p.rapidapi.com",
@@ -35,14 +116,29 @@ def call_api(select, country):
     return response.json()
 
 
+class ActionFetchVisual(Action):
+
+    def name(self) -> Text:
+        return "action_fetch_visual"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Please wait a moment....Fetching data...")
+        link = imageuploader()
+        dispatcher.utter_message(image=link)
+        dispatcher.utter_message(text="This is the latest world map visual from WHO website.")
+        return []
+
+
 class ActionCasesWorldwide(Action):
 
     def name(self) -> Text:
         return "action_cases_worldwide"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    async def run(self, dispatcher: CollectingDispatcher,
+                  tracker: Tracker,
+                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         response = call_api("world", None)
         dispatcher.utter_message(text="World wide reports : ")
         for key in ("confirmed", "recovered", "critical", "deaths"):
@@ -81,12 +177,13 @@ class ActionCheckUserInfo(Action):
             value = tracker.get_slot(key)
             if value is None:  # this is how to check if slot value is filled or not.
                 dispatcher.utter_message(text="I don't have your details yet.")
-                dispatcher.utter_message(template="utter_ask_name")
-                flag = 1
-                break
-        if flag == 0:
-            dispatcher.utter_message(text="Stay Safe, I have sent the mail.")
+                return [FollowupAction("user_info")]
 
+        usermail = tracker.get_slot("email")
+        username = tracker.get_slot("name")
+        dispatcher.utter_message(text="Please wait a moment....")
+        sent_email(usermail, username)
+        dispatcher.utter_message(text="You will receive a mail from me shortly.Stay safe ! :)")
         return []
 
 
@@ -139,7 +236,7 @@ class UserInfo(FormAction):  # This form collects user info
     @staticmethod
     def required_slots(tracker: Tracker) -> List[Text]:
         """A list of required slots that the form has to fill"""
-        return ["name", "email", "pincode", "mobnumber"]
+        return ["name", "email"]
 
     def slot_mappings(self) -> Dict[Text, Any]:
         return {"name": self.from_entity(entity="name",
@@ -158,12 +255,14 @@ class UserInfo(FormAction):  # This form collects user info
                ) -> List[Dict]:
         name = tracker.get_slot('name')
         email = tracker.get_slot('email')
-        pin = tracker.get_slot('pincode')
-        mob = tracker.get_slot('mobnumber')
-        # utter submit template
+        # pin = tracker.get_slot('pincode')
+        # mob = tracker.get_slot('mobnumber')
+
         dispatcher.utter_message(
-            "Hey, your name is {} , email id : {} , pincode is {} , maobile number is {}".format(name.title(),
-                                                                                                 email.title(),
-                                                                                                 pin.title(),
-                                                                                                 mob.title()))
+            "Your details name:  {}, email id: {}".format(name,
+                                                          email))
+
+        dispatcher.utter_message(text="Please wait a moment....")
+        sent_email(email, name)
+        dispatcher.utter_message(text="You will receive a mail from me shortly.Stay safe ! :)")
         return []

@@ -17,33 +17,30 @@
 - hi
 - hello
 - Namashkaar
+- What's up
+- what is up
+- Yo
+
 
 
 ## intent:give_user_info
-- Hello , I am [ryan](name)
-- Hey , I'm [nikhil](name)
-- Yo
-- Yo , [cedric](name) here
-- What's up
-- what is up
-- What's up , [Jeff Cavaliere](name)
-- Hey , I am [Zlatan](name)
-- hello , my name is [joey](name)
-- namasthe, [Kapoor](name) here
-- hello everyone, my name is [Krish Naik](name)
-- greetings, I am [Thomas](name)
-- Hola , [leo](name) here.
-- Hey , it's [Jashim](name)
-- hey , this is [Charlie](name)
-- hello , [Shyam](name) here.
-- hi , I'm [Ram](name)
-- good morning , my name is [Lucas](name)
-- good evening , I'm [Pedro](name)
-- hey there , I am [Todd](name)
-- hi, my name is [John](name)
-- I am [nick](name)
-- Hey there , [Brad](name)
-- [Bond](name),[James Bond](name)
+- [ryan](name)
+- [nikhil](name)
+- [cedric](name)
+- [Jeff Cavaliere](name)
+- [Zlatan](name)
+- [joey](name) is my name
+- My name is [Kapoor](name)
+- [Krish Naik](name)
+- [Thomas](name)
+- [leo](name)
+- [Jashim](name)
+- [Charlie](name)
+- my name is [Shyam](name)
+- [Ram](name)
+- [Lucas](name)
+- [Pedro](name)
+- [James Bond](name)
 - [Anand](name)
 - [Abhishek](name)
 - [vivek](name)
@@ -53,16 +50,151 @@
 - [kevin](name)
 - [Anirudh](name)
 - [Arun](name)
-- [Rohith](name)
+- I am [Rohith](name)
 - [Adithya](name)
-- [Jerry](name)
+- The name is [Jerry](name)
 - [Tom](name)
-- my name is [Peter Parker](name)
-- I am [Blaszykowski](name)
-- my name is [john](name)
-- I am [Erlich](name)
+- [Peter Parker](name)
+- [Blaszykowski](name)
+- [john](name)
+- [Erlich](name)
+- [Sudhanshu](name)
+- [Virat](name)
+- [Sai](name)
 - [bachmann](name)
-- iam [harper](name)
+- [harper](name)
+- [Jishnu](name)
+- [Andrew](name)
+- [Kelly](name)
+- [Maxim](name)
+- [Jota](name)
+- [Alok](name)
+- [kavya madhavan](name)
+- [bhavana](name)
+- [kareena k](name)
+- [angelina jolie](name)
+- [benjamin franklin](name)
+- [gallileo gallei](name)
+- [amit shah](name)
+- [mike toreno](name)
+- [claude](name)
+- [job kurian](name)
+- [kevin hart](name)
+- [r keanu](name)
+- [anchal](name)
+- [ashish](name)
+- [amal jk](name)
+- [alexander kerensky](name)
+- [achyuth r](name)
+- [colin](name)
+- [kendl](name)
+- [winny mandela](name)
+- [abraham lincoln](name)
+- [donald trump](name)
+- [dhanya](name)
+- [divya](name)
+- [raman](name)
+- [suman](name)
+- [gopalan](name)
+- [adolf hitler](name)
+- [rihan](name)
+- [azin](name)
+- [mohammed amdan](name)
+- [anushka](name)
+- [katrina k](name)
+- [sanjana u](name)
+- [deepika padukone](name)
+- [samuel l jackson](name)
+- [anoop v](name)
+- [madonna sebastian](name)
+- [nivin pauly](name)
+- [salman dulquer](name)
+- [salman khan](name)
+- [heath ledger](name)
+- [jeeja](name)
+- [diya d](name)
+- [ammini](name)
+- [chithra](name)
+- [chanchal](name)
+- [helen keller](name)
+- [bhuvaneshwari](name)
+- [chadwick boseman](name)
+- [rohini p](name)
+- [anjana pradeesh](name)
+- [mohan kumar](name)
+- [susan wojcicki](name)
+- [Abhay](name)
+- [Abhinu](name)
+- [Abhinav](name)
+- [Abhishek](name)
+- [Achuth](name)
+- [Adarsh](name)
+- [Adesh](name)
+- [Adhar](name)
+- [Adi](name)
+- [Aditya](name)
+- [Ajay](name)
+- [Ajish](name)
+- [Ajit](name)
+- [Akhil](name)
+- [Akshat](name)
+  [Aseem](name)
+- [Ashwin](name)
+- [Bali](name)
+- [Baltej](name)
+- [Bellamkonda](name)
+- [Bhagwant](name)
+- [Bharat](name)
+- [Bhavesh](name)
+- [Bhupinder](name)
+- [Bhushan](name)
+- [Bibek](name)
+- [Bibin](name)
+- [Biju](name)
+- [Binu](name)
+- [Chakrapani](name)
+- [Chandrajit](name)
+- [Dayanidhi](name)
+- [Debabrata](name)
+- [Devendra](name)
+- [Devesh](name)
+- [Dharanidhar](name)
+- [Dheeraj](name)
+- [Dhinakaran](name)
+- [Dileesh](name)
+- [Dipankar](name)
+- [Dnyandeo](name)
+- [Dilroopa](name)
+- [Shivapriya](name)
+- [Thamannah](name)
+- [Ekram](name)
+- [Elangovan](name)
+- [Harish](name)
+- [Harjit](name)
+- [Harmeet](name)
+- [Harsh](name)
+- [Hemant](name)
+- [Hitesh](name)
+- [Ira](name)
+- [Ishana](name)
+- [Jaipal](name)
+- [Jalaj](name)
+- [Jayant](name)
+- [Kalimuthu](name)
+- [Sushma](name)
+- [Susmita](name)
+- [Tanisha](name)
+- [Tanushree](name)
+- [Tejal](name)
+- [Tejaswi](name)
+- [Tina](name)
+- [Uma](name)
+- [Uzma](name)
+- [Varsha](name)
+- [Vibha](name)
+- [Vijayalakshmi](name)
+- [Yamini](name)
+- [Yashomati](name)
 - [pricesscool@gmail.com](email)
 - my email id is [abc@xyz.com](email)
 - my mail id is [arun12@gmail.com](email)
@@ -214,6 +346,15 @@
 - am I talking to a human?
 - who are you
 - what are you
+- do you have corona
+- can you get corona
+- do you have covid
+- do you get covid
+- what do you do
+- what are you up to
+- are you working
+- can i talk to you
+- can we talk
 
 ## intent:thank_bot
 - Thank you
@@ -235,16 +376,59 @@
 - what is covid-19
 - tell me about corona
 - can you tell me about covid
+- what is covid
+
+## intent: covid_symptom_doubt
+- do i have covid
+- do I have corona
+- I have corona
+- I have covid
+- will corona get me
+- will I get covid
+- check for covid
+- check for corona
+- I have sore throat
+- is it covid 
+- is it corona
+- how is it covid
+- how is it corona
+- I want to check for covid
+- i have symptoms of covid
+- Do I have covid
+- I have cough
+- I went to a public place
+- how long will it take to get covid
+- what are the symptoms of corona
+- what are the symptoms of covid
+- give me the symptoms of the disease
+- get me symptoms
+- covid symptoms
+- should I go to the hospital
+- do i need to go to the hospital
+- do i need to go to the doctor
+- should i see a doctor
+- should I even see a doctor
+- should I go for a check up
+- check up
+- symptoms
+- hospital
+- help me
+- check me
+- doctor
 
 ## intent:corona_spread
 - how does corona virus spread
 - how does the virus spread
 - how it spread
 - mode of spreading
+- how do you get covid
+- how covid spreads
+
 
 ## intent:corona_food_spread
 - Does corona spread from food
 - how will corona spread from food
+- does it spread through food
 
 ## intent:warm_weather
 - will warm weather stop the spread
@@ -281,8 +465,41 @@
 - cases globally
 - total cases globally
 
-## lookup:country
-data/test/lookup_tables/countries.txt
+## intent: ask_visual
+- visual 
+- show me a data visual
+- I want to see visual
+- visual representation
+- visual data
+- map data of the world
+- map it
+- plot it
+- plot data
+- picture
+- send me a pic
+- pic
+- graph
+- show me graph
+- graphical data
+- graphical across the world
+- Map
+- Show map
+- world map
+- worldwide map
+- map world
+- total map visual
+- data visualisation
+- global map
+- show map globally
+- pictorial representation
+- Diagram
+- show a diagram
+- plot
+- give a plot
+- world map plot
+
+
+
 
 ## intent: ask_countrywise
 - [India](country)
@@ -294,6 +511,7 @@ data/test/lookup_tables/countries.txt
 - [Bhutan](country)
 - [Bolivia](country)
 - [Bosnia and Herzegovina](country)
+- [Senegal](country)
 - [Brunei](country)
 - [Bulgaria](country)
 - [Burkina Faso](country)
@@ -398,3 +616,9 @@ data/test/lookup_tables/countries.txt
 
 ## regex:pincode
 - [0-9]{6}
+
+## lookup:country
+data/test/lookup_tables/countries.txt
+
+## lookup:name
+data/test/lookup_tables/names.txt

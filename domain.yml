@@ -19,6 +19,8 @@ intents:
   - mail_me
   - ask_worldwide
   - ask_countrywise
+  - ask_visual
+  - covid_symptom_doubt
   - start:
       triggers: utter_bot_function
 entities:
@@ -46,7 +48,7 @@ responses:
     - text: Please tell me your email id
     - text: Please enter  email id.
   utter_ask_mobnumber:
-    - text: Your mobile number is?
+    - text: Your mobile number is(optional)?
     - text: What is your mobile number?
     - text: Please enter  your mobile number.
     - text: Please tell me your mobile number.
@@ -65,31 +67,35 @@ responses:
   utter_goodbye:
     - text: Bye
   utter_whoami:
-    - text: Hey there !I am a bot.To stay updated with the current covid pandemic, I can give you counrty wise report, mail latest reports world wide or answer FAQs. I am powered by Rasa.
+    - text: Hey there! Iam a bot.I can give you counrty wise report (enter a country), mail latest
+        reports world wide or answer FAQs. I am powered by Rasa.
   utter_noworries:
     - text: You are welcome.
   utter_userinfo_thank:
-    - text: Thank you ! How can I help ?
+    - text: Thank you.
   utter_userinfo_reaffirm:
     - text: I am a bot to provide you information about the corona virus pandemic. You
-        details are only used for the same purpose.Would you like me to continue ?
+        details are only used for the same purpose, I can't email you without the detailsy.
   utter_greet:
     - text: Hello there mate !!
   utter_bot_function:
-    - text: Select the options below or ask your Questions.
+    - text: Select an option or ask a country name or ask a question.
       buttons:
-        - title: Location wise reports
-          payload: world
-        - title: Mail me info.
+        - title:  World Map visual
+          payload: visual
+        - title: Email data
           payload: sent mail
-        - title: Corona?.
-          payload: What is corona virus
+        - title: World cases
+          payload: world
+
   utter_corona_intro:
     - text: Coronaviruses are a group of related viruses that cause diseases in mammals
         and birds. In humans, coronaviruses cause respiratory tract infections that
         can be mild, such as some cases of the common cold (among other possible causes,
         predominantly rhinoviruses), and others that can be lethal, such as SARS, MERS,
-        and COVID-19
+        and COVID-19. The virus induces symptoms like Fever, dry coughs, chills, shortness of breath , tiredness etc.
+        Most estimates of the incubation period for COVID-19 range from 1-14 days, most commonly around five days.
+        These estimates will be updated as more data become available.
   utter_corona_spread:
     - text: "This virus was first detected in Wuhan City, Hubei Province, China. The\
       \ first infections were linked to a live animal market, but the virus is now\
@@ -129,9 +135,15 @@ responses:
         may be at higher risk for more serious complications from COVID-19. These people
         who may be at higher risk of getting very sick from this illness, includes;
         Older adults, People who have serious underlying medical conditions like...
-        Heart disease, Diabetes, Lung disease,
+        Heart disease, Diabetes, Lung disease etc.
+  utter_symptom_check_link:
+    - text: The virus induces symptoms like Fever, dry coughs, chills, shortness of breath etc.The incubation period is 28 days.
+             If you feel you need a diagnosis, please check https://symptomate.com/covid19/checkup/en/  This Checkup
+            and its potential results are entirely based on WHO and CDC guidelines concerning COVID-19 only and does not represent,
+            in any way, a qualified medical opinion. If you have an emergency, call your local emergency number immediately and seek medical help.
   utter_default:
-    - text: Sorry !, I didn't understand that, could you please rephrase ?
+    - text: "Sorry :( , I don't know how to respond to that ,could you rephrase or ask another question ? :)"
+
 actions:
   - utter_greet
   - utter_ask_email
@@ -150,9 +162,12 @@ actions:
   - utter_corona_food_spread
   - utter_warm_weather
   - utter_high_risk
+  - utter_symptom_check_link
   - action_check_userinfo
   - utter_default
   - action_cases_worldwide
   - action_cases_countrywise
+  - action_fetch_visual
+
 forms:
   - user_info

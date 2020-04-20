@@ -3,14 +3,14 @@
 language: en
 pipeline:
   - name: WhitespaceTokenizer
-    case_sensitive: false
+    case_sensitive: False
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
-  - name: CountVectorsFeaturizer
   - name: CountVectorsFeaturizer
     analyzer: "char_wb"
     min_ngram: 1
     max_ngram: 4
+  - name: CRFEntityExtractor
   - name: DIETClassifier
     epochs: 100
   - name: EntitySynonymMapper
