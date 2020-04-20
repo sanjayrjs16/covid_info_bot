@@ -21,8 +21,6 @@
 - what is up
 - Yo
 
-
-
 ## intent:give_user_info
 - [ryan](name)
 - [nikhil](name)
@@ -126,7 +124,6 @@
 - [Abhay](name)
 - [Abhinu](name)
 - [Abhinav](name)
-- [Abhishek](name)
 - [Achuth](name)
 - [Adarsh](name)
 - [Adesh](name)
@@ -138,7 +135,6 @@
 - [Ajit](name)
 - [Akhil](name)
 - [Akshat](name)
-  [Aseem](name)
 - [Ashwin](name)
 - [Bali](name)
 - [Baltej](name)
@@ -270,8 +266,7 @@
 - can you sent me the reports to my mail
 - sent mail
 - sent me the mail
-- I want reports mailed
- 
+
 ## intent:goodbye
 - bye
 - goodbye
@@ -376,9 +371,8 @@
 - what is covid-19
 - tell me about corona
 - can you tell me about covid
-- what is covid
 
-## intent: covid_symptom_doubt
+## intent:covid_symptom_doubt
 - do i have covid
 - do I have corona
 - I have corona
@@ -388,7 +382,7 @@
 - check for covid
 - check for corona
 - I have sore throat
-- is it covid 
+- is it covid
 - is it corona
 - how is it covid
 - how is it corona
@@ -424,7 +418,6 @@
 - how do you get covid
 - how covid spreads
 
-
 ## intent:corona_food_spread
 - Does corona spread from food
 - how will corona spread from food
@@ -436,14 +429,14 @@
 - can warm weather stop the virus
 - what about warm weather
 
-## intent: high_risk
+## intent:high_risk
 - who is at a higher risk of infection
 - who are most vulnerable to it
 - who are most vulnerable to get infected
 - who can get the virus most
 - who are most likely to get infected
 
-## intent: ask_worldwide
+## intent:ask_worldwide
 - worldwide
 - total cases
 - how many cases worldwide
@@ -465,8 +458,8 @@
 - cases globally
 - total cases globally
 
-## intent: ask_visual
-- visual 
+## intent:ask_visual
+- visual
 - show me a data visual
 - I want to see visual
 - visual representation
@@ -498,10 +491,7 @@
 - give a plot
 - world map plot
 
-
-
-
-## intent: ask_countrywise
+## intent:ask_countrywise
 - [India](country)
 - [Antigua and Barbuda](country)
 - [Argentina](country)
@@ -588,10 +578,6 @@
 - [Switzerland](country)
 - [Syria](country)
 - [Taiwan](country)
-- [Tajikistan](country)
-- [Tanzania](country)
-- [Thailand](country)
-- [Togo](country)
 - [Tonga](country)
 - [Trinidad and Tobago](country)
 - [United Arab Emirates](country)
@@ -603,8 +589,6 @@
 - [Zambia](country)
 - [Zimbabwe](country)
 
-
- 
 ## intent:start
 - /start
 
@@ -617,8 +601,8 @@
 ## regex:pincode
 - [0-9]{6}
 
-## lookup:country
-data/test/lookup_tables/countries.txt
+## lookup:countries.txt
+  /app/git/1/data/countries.txt
 
-## lookup:name
-data/test/lookup_tables/names.txt
+## lookup:names.txt
+  /app/git/1/data/names.txt
