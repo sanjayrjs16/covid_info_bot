@@ -43,9 +43,4 @@ tracker_store:
 #  queue: queue
 
 #
-#tracker_store:
-#    type: mongod
-#    url: mongodb+srv://sanjay:<password>@devcluster0-tedcc.mongodb.net/test?retryWrites=true&w=majority
-#    db: chatbot
-#    username: sanjay
-#    password: patience
+
